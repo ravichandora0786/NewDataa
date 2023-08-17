@@ -1,0 +1,30 @@
+
+<%- include('../layouts/header') %>
+
+<div class="container mt-5">
+  
+    <h1>Edit User</h1>
+
+    <form action="" method="POST">
+        <div class="form-group">
+            <label >Email address</label>
+            <input type="email" name="email" class="form-control" id="" value="<%= user.id %>" required>
+            
+        </div>
+        <div class="form-group">
+            <label >Active</label>
+            <input type="radio" name="status" value="1" <% if(user.is_varified == 1){ %> checked  <% } %> >
+            <label >UnActive</label>
+            <input type="radio" name="status" value="0" <% if(user.is_varified == 0){ %> checked  <% } %> >
+        </div>
+        <br>
+        <input type="hidden" name="hide" id="" value="<%= user._id %>" >
+        <button type="submit" class="btn btn-secondary">Update User</button>
+        <a href="/admin/dashboard" class="btn btn-secondary">Go dashboard</a>
+
+    </form>
+    
+ 
+</div>
+
+<%- include('../layouts/footer') %>

@@ -1,0 +1,42 @@
+<%- include('../layouts/header') %>
+    <br>
+    <div class="container">
+        <h3>welcome</h3>
+        <br>
+        <table width="700px">
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            <% if(users.length>0){
+
+                for(let i=0; i<users.length; i++) {
+                    %>
+                    <tr>
+                        <td><%= users[i]._id %></td>
+                        <td><%= users[i].id %></td>
+                        <td><%= users[i].is_varified %></td>
+                        <td><a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a></td>
+                    </tr>
+                    <%
+                }
+
+                } else
+                {
+                    %>
+                <tr>
+                    <td colspan="3">Users Not Found</td>
+                </tr>
+                <%
+                }
+                %>
+        </table>
+        <br>
+        <a href="/admin/home" class="btn btn-danger">Go to Home</a>
+
+    </div>
+
+    <%- include('../layouts/footer') %>
